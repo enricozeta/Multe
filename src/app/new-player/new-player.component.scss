@@ -1,21 +1,21 @@
-.example-container {
+.player-container {
   display: flex;
   flex-direction: column;
 }
 
-.example-container > * {
+.player-container > * {
   width: 100%;
 }
 
-.example-right-align {
+.player-right-align {
   text-align: right;
 }
 
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
+input.player-right-align::-webkit-outer-spin-button,
+input.player-right-align::-webkit-inner-spin-button {
   display: none;
 }
 
-input.example-right-align {
+input.player-right-align {
   -moz-appearance: textfield;
 }

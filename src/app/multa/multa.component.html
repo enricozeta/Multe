@@ -1,0 +1,22 @@
+<div class="multa-container">
+  <mat-form-field>
+      <input type="text" placeholder="Giocatore" aria-label="Giocatore" matInput [formControl]="myControl" [matAutocomplete]="auto" required>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Descrizione" required>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Valore" type="number" class="multa-right-align">
+      <span matPrefix>€&nbsp;</span>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Data" type="date" class="multa-right-align">
+  </mat-form-field>
+  <mat-checkbox>Pagata</mat-checkbox>
+  <button mat-raised-button color="primary">Salva</button>
+</div>

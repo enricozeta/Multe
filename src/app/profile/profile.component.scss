@@ -1,0 +1,21 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-container > * {
+  width: 100%;
+}
+
+.profile-right-align {
+  text-align: right;
+}
+
+input.profile-right-align::-webkit-outer-spin-button,
+input.profile-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.profile-right-align {
+  -moz-appearance: textfield;
+}
