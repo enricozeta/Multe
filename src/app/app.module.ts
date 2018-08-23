@@ -11,6 +11,7 @@ import { PlayersComponent } from './players/players.component';
 import { MultaComponent } from './multa/multa.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlayerComponent } from './player/player.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PlayerComponent } from './player/player.component';
     PlayersComponent,
     MultaComponent,
     ProfileComponent,
-    PlayerComponent
+    PlayerComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
