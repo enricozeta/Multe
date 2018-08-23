@@ -1,19 +1,23 @@
-<div class="profile-container">
-    <mat-form-field>
-      <input matInput placeholder="Nome" required>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Cognome" required>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email" [formControl]="emailFormControl" required>
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Inserisci un indirizzo mail valido
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        L'email è <strong>obbligatoria</strong>
-      </mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="primary">Salva</button>
-  </div>
+<mat-card class="card">
+  <mat-card-content>
+    <div class="profile-container">
+      <mat-form-field>
+        <input matInput placeholder="Nome" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Cognome" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [formControl]="emailFormControl" required>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Inserisci un indirizzo mail valido
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          L'email è <strong>obbligatoria</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Salva</button>
+    </div>
+  </mat-card-content>
+</mat-card>
 
