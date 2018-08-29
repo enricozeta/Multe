@@ -1,0 +1,21 @@
+.staff-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-container > * {
+  width: 100%;
+}
+
+.staff-right-align {
+  text-align: right;
+}
+
+input.staff-right-align::-webkit-outer-spin-button,
+input.staff-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.staff-right-align {
+  -moz-appearance: textfield;
+}

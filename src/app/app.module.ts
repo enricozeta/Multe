@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatListModule, MatFormFieldModule, MatSelectModule,
   MatInputModule, MatTableModule, MatAutocompleteModule, MatCardModule, MatProgressBarModule} from '@angular/material';
@@ -12,6 +13,7 @@ import { MultaComponent } from './multa/multa.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlayerComponent } from './player/player.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { StaffUserComponent } from './staff-user/staff-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     MultaComponent,
     ProfileComponent,
     PlayerComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    StaffUserComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
