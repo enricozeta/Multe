@@ -1,7 +1,45 @@
-<app-new-player></app-new-player>
-<app-players></app-players>
-<app-multa></app-multa>
-<app-profile></app-profile>
-<app-player></app-player>
-<app-change-password></app-change-password>
-<app-staff-user></app-staff-user>
+<script src="node_modules/chart.js/src/chart.js"></script>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name" routerLink="home">Multe Manager</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Squadra
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list (click)="snav.toggle()" role="list">
+            <mat-list-item routerLink="home" role="listitem">Home</mat-list-item>
+            <mat-list-item routerLink="players" role="listitem">I tuoi giocatori</mat-list-item>
+            <mat-list-item routerLink="multa" role="listitem">Nuova multa</mat-list-item>
+            <mat-list-item routerLink="new-player" role="listitem">Nuovo giocatore</mat-list-item>
+            <mat-list-item routerLink="multe-types" role="listitem">Tipologia multe</mat-list-item>
+            <mat-list-item routerLink="team-settings" role="listitem">Impostazioni</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"(closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Profilo
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list (click)="snav.toggle()" role="list">
+            <mat-list-item routerLink="profile" role="listitem">Impostazioni</mat-list-item>
+            <mat-list-item routerLink="change-password" role="listitem">Cambia password</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

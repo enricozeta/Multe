@@ -1,0 +1,17 @@
+<mat-card class="card">
+  <mat-card-title>Nuova Tipologia di Multe</mat-card-title>
+  <mat-divider></mat-divider>
+  <br>
+  <mat-card-content>
+    <div class="player-container">
+      <mat-form-field>
+        <input matInput placeholder="Descrizione" value= {{multaType.descrizione}} required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Valore" type="number" value= {{multaType.valore}} required>
+        <span matPrefix>€&nbsp;</span>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Salva</button>
+    </div>
+  </mat-card-content>
+</mat-card>

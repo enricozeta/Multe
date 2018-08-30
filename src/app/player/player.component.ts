@@ -1,22 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
-
-export interface PeriodicElement {
-  descrizione: string;
-  position: number;
-  data: string;
-  pagata: boolean;
-  valore: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, descrizione: 'Hydrogen', data: '2018/07/07', pagata: true, valore: '10'},
-  {position: 2, descrizione: 'Helium', data: '2018/07/07', pagata: true, valore: '10'},
-  {position: 3, descrizione: 'Lithium', data: '2018/07/07', pagata: true, valore: '10'},
-  {position: 4, descrizione: 'Beryllium', data: '2018/07/07', pagata: true, valore: '10'},
-  {position: 5, descrizione: 'Boron', data: '2018/07/07', pagata: true, valore: '10'},
-  {position: 6, descrizione: 'Carbon', data: '2018/07/07', pagata: true, valore: '10'},
-];
+import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import { Player } from '../player/player';
+import { PLayerService } from './player.service';
 
 @Component({
   selector: 'app-player',
@@ -25,12 +10,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class PlayerComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'descrizione', 'data', 'pagata', 'valore'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['descrizione', 'data', 'pagata', 'valore'];
+  dataSource: any;
+  player: Player;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor(private playerService: PLayerService) { }
 
   ngOnInit() {
+    this.onInitPlayer();
+    this.dataSource = {
+      paginator : this.paginator,
+      sort : this.sort
+    };
   }
 
+  onInitPlayer() {
+    this.playerService.getPlayer().subscribe(data => {
+      this.player = data;
+      this.dataSource = new MatTableDataSource(this.player.multe);
+    });
+  }
+
+  selectRow(row) {
+    this.playerService.getMulta(row.id);
+  }
 }

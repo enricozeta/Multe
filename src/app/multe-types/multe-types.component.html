@@ -1,0 +1,29 @@
+<mat-card class="card">
+    <mat-card-content>
+      <mat-card-title>Tipologia multe <button mat-raised-button color="primary" routerLink="/new-multaType">New</button></mat-card-title>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Cerca multe">
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Descrizione Column -->
+        <ng-container matColumnDef="descrizione">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrizione </th>
+          <td mat-cell *matCellDef="let element"> {{element.descrizione}} </td>
+        </ng-container>
+
+        <!-- Da Pagare Column -->
+        <ng-container matColumnDef="valore">
+          <th mat-header-cell *matHeaderCellDef> Valore </th>
+          <td mat-cell *matCellDef="let element"> {{element.valore}} €</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+

@@ -1,23 +1,36 @@
 <mat-card class="card">
+  <mat-card-title>Informazioni Personali</mat-card-title>
+  <mat-divider></mat-divider>
+  <br>
   <mat-card-content>
     <div class="profile-container">
       <mat-form-field>
-        <input matInput placeholder="Nome" required>
+        <input matInput placeholder="Nome" value="{{user.name}}" required>
       </mat-form-field>
       <mat-form-field>
-          <input matInput placeholder="Cognome" required>
+          <input matInput placeholder="Cognome" value="{{user.surname}}" required>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" [formControl]="emailFormControl" required>
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Inserisci un indirizzo mail valido
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          L'email è <strong>obbligatoria</strong>
-        </mat-error>
+        <input matInput placeholder="Email" value="{{user.email}}" disabled>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Squadra" value="{{user.team}}" disabled>
       </mat-form-field>
       <button mat-raised-button color="primary">Salva</button>
     </div>
   </mat-card-content>
 </mat-card>
+<br>
+<mat-card class="card">
+    <mat-card-title>Reset profilo</mat-card-title>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-card-content>
+      <div class="profile-container">
+        <button mat-raised-button color="warn">Elimina la squadra gestita</button>
+        <br>
+        <button mat-raised-button color="warn">Cancella Profilo</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
