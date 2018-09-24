@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class PLayerService {
+export class PlayerService {
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router) {}
 

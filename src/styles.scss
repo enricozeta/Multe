@@ -1,24 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~app/style/style';
 
-.card {
-  max-width: 600px;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-main;
+  margin-top: 0;
 }
 
 body {
-  font-family: Roboto, Arial, sans-serif;
   margin: 0;
 }
 
-.basic-container {
-  padding: 30px;
-}
+// .card {
+//   max-width: 600px;
+// }
 
-.version-info {
-  font-size: 8pt;
-  float: right;
-}
+// .basic-container {
+//   padding: 30px;
+// }
 
-table{
-  text-align: left
-}
+// .version-info {
+//   font-size: 8pt;
+//   float: right;
+// }
+
+// table{
+//   text-align: left
+// }

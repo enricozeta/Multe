@@ -1,13 +1,27 @@
+@import '~app/style/style';
+
+.players {
+  height: 100%;
+
+  .content {
+    padding: 24px;
+  }
+
+  .header {
+    padding: 24px 24px 0;
+  }
+}
+
 /* Structure */
-table {
-  width: 100%;
-}
+// table {
+//   width: 100%;
+// }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+// .mat-form-field {
+//   font-size: 14px;
+//   width: 100%;
+// }
 
-th.mat-sort-header-sorted {
-  color: black;
-}
+// th.mat-sort-header-sorted {
+//   color: $black;
+// }

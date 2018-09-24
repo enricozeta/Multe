@@ -1,45 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+
 import { HomeService } from './home.service';
-import {PlayersService} from '../players/players.service';
-import { Team } from '../team/team';
+import { MatTableDataSource } from '@angular/material';
+import { PlayersService } from '@app/players/players.service';
+import { Team } from '@app/team/team';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
 
-  displayedColumns: string[];
-  team: Team;
-  dataSourceWorst: any;
+export class HomeComponent implements OnInit {
   dataSourceBest: any;
+  dataSourceWorst: any;
+  displayedColumns: string[];
+  ready: boolean;
+  team: Team;
 
   constructor(private homeService: HomeService, private playersService: PlayersService) { }
 
   ngOnInit() {
+    this.initBest();
     this.initTeam();
     this.initWorst();
-    this.initBest();
+
     this.displayedColumns = ['name', 'total'];
+  }
+
+  initBest() {
+    this.homeService.getTheBest().subscribe(data => {
+      this.dataSourceBest = new MatTableDataSource(data);
+    });
   }
 
   initTeam() {
     this.homeService.getTeam().subscribe(data => {
       this.team = data;
+
+      this.ready = true;
     });
   }
 
   initWorst() {
     this.homeService.getTheWorst().subscribe(data => {
       this.dataSourceWorst = new MatTableDataSource(data);
-    });
-  }
-
-  initBest() {
-    this.homeService.getTheBest().subscribe(data => {
-      this.dataSourceBest = new MatTableDataSource(data);
     });
   }
 

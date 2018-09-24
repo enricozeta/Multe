@@ -1,14 +1,22 @@
-/* Structure */
-table {
-  width: 100%;
-}
+@import '~app/style/style';
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+.home {
+  height: 100%;
 
-.bar-home{
-  height: 20px;
-}
+  .card-content {
+    width: 100%;
+  }
 
+  .content {
+    padding: 24px;
+  }
+
+  .header {
+    padding: 24px;
+  }
+
+  .progress-bar {
+    height: 24px;
+    margin: 24px 0;
+  }
+}
