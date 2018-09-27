@@ -3,19 +3,18 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
-import { Multa } from './multa';
-import { MultaService } from './multa.service';
+import { MultaService } from '@app/core/multa/multa.service';
 import { MultaType } from '@app/core/multa-type/multa-type';
 
 import { Player } from '@app/core/player/player';
-import { PlayersService } from '@app/players/players.service';
+import { PlayersService } from '@app/components/players/players.service';
 
 @Component({
-  selector: 'app-multa',
-  templateUrl: './multa.component.html',
-  styleUrls: ['./multa.component.scss'],
+  selector: 'app-new-multa',
+  templateUrl: './new-multa.component.html',
+  styleUrls: ['./new-multa.component.scss'],
 })
-export class MultaComponent implements OnInit {
+export class NewMultaComponent implements OnInit {
   filteredOptions: Observable<Player[]>;
   form = new FormControl();
   players: Player[];

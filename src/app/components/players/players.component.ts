@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
-import { PlayersService } from './players.service';
 import { Player } from '@app/core/player/player';
+import { PlayersService } from './players.service';
 
 @Component({
   selector: 'app-players',

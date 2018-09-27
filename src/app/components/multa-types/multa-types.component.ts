@@ -5,11 +5,12 @@ import { MultaType } from '@app/core/multa-type/multa-type';
 import { MultaTypeService } from '@app/core/multa-type/multa-type.service';
 
 @Component({
-  selector: 'app-multe-types',
-  templateUrl: './multe-types.component.html',
-  styleUrls: ['./multe-types.component.scss'],
+  selector: 'app-multa-types',
+  templateUrl: './multa-types.component.html',
+  styleUrls: ['./multa-types.component.scss'],
 })
-export class MulteTypesComponent implements OnInit {
+
+export class MultaTypesComponent implements OnInit {
   dataSource: MatTableDataSource<MultaType>;
   displayedColumns: string[];
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { MultaType } from './multa-type';
@@ -8,6 +8,7 @@ import { MultaType } from './multa-type';
 import { environment } from '@env/environment';
 
 @Injectable()
+
 export class MultaTypeService {
   constructor(private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute) {}
 
@@ -17,7 +18,7 @@ export class MultaTypeService {
   }
 
   goToNewMultaType(index: number) {
-    this.router.navigate(['/new-multaType'], { queryParams: { id: index } });
+    this.router.navigate(['/new-multa-type'], { queryParams: { id: index } });
   }
 
   getMultaTypeById(id) {

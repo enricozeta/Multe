@@ -8,6 +8,7 @@ import { TeamService } from '@app/core/team/team.service';
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss'],
 })
+
 export class TeamComponent implements OnInit {
   team: Team;
 

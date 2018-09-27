@@ -10,6 +10,7 @@ import { PlayerService } from '@app/core/player/player.service';
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss'],
 })
+
 export class PlayerComponent implements OnInit {
   dataSource: any;
   displayedColumns: string[];
@@ -36,7 +37,7 @@ export class PlayerComponent implements OnInit {
 
   selectRow(row) {
     this.playerService.goToMulta(row.id);
-    this.router.navigate(['/multa'], { queryParams: { id: row.id } });
+    this.router.navigate(['/new-multa'], { queryParams: { id: row.id } });
   }
 
   _onInitPlayer() {

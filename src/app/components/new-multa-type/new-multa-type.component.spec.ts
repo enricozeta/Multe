@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MultaComponent } from './multa.component';
+import { NewMultaTypeComponent } from '@app/components/new-multa-type/new-multa-type.component';
 
-describe('MultaComponent', () => {
-  let component: MultaComponent;
-  let fixture: ComponentFixture<MultaComponent>;
+describe('NewMultaTypeComponent', () => {
+  let component: NewMultaTypeComponent;
+  let fixture: ComponentFixture<NewMultaTypeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MultaComponent],
+      declarations: [NewMultaTypeComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MultaComponent);
+    fixture = TestBed.createComponent(NewMultaTypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

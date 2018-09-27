@@ -16,28 +16,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 // application component
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
-import { MultaComponent } from './multa/multa.component';
-import { MulteTypesComponent } from './multe-types/multe-types.component';
+import { LoginComponent } from './components/login/login.component';
 
-import { NewMulteTypeComponent } from './new-multe-type/new-multe-type.component';
-import { NewPlayerComponent } from './new-player/new-player.component';
+import { NewMultaComponent } from './components/new-multa/new-multa.component';
+import { MultaTypesComponent } from './components/multa-types/multa-types.component';
 
-import { PlayerComponent } from './player/player.component';
-import { PlayersComponent } from './players/players.component';
-import { ProfileComponent } from './profile/profile.component';
+import { NewMultaTypeComponent } from './components/new-multa-type/new-multa-type.component';
+import { NewPlayerComponent } from './components/new-player/new-player.component';
 
-import { StaffUserComponent } from './staff-user/staff-user.component';
+import { PlayerComponent } from './components/player/player.component';
+import { PlayersComponent } from './components/players/players.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
-import { TeamComponent } from './team/team.component';
-import { TeamSettingsComponent } from './team-settings/team-settings.component';
+import { TeamSettingsComponent } from './components/team-settings/team-settings.component';
 
 import { MAT_DATE_LOCALE } from '@angular/material';
-
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -47,21 +44,19 @@ import { LoginComponent } from './login/login.component';
 
     HomeComponent,
 
-    MultaComponent,
-    MulteTypesComponent,
+    LoginComponent,
 
-    NewMulteTypeComponent,
+    NewMultaComponent,
+    MultaTypesComponent,
+
+    NewMultaTypeComponent,
     NewPlayerComponent,
 
     PlayerComponent,
     PlayersComponent,
     ProfileComponent,
 
-    StaffUserComponent,
-
-    TeamComponent,
-    TeamSettingsComponent,
-    // LoginComponent
+    TeamSettingsComponent
   ],
   imports: [
     AppRoutingModule,

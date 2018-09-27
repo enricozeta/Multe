@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
+
+import { Team } from '@app/core/team/team';
 
 import { HomeService } from './home.service';
-import { MatTableDataSource } from '@angular/material';
-import { PlayersService } from '@app/players/players.service';
-import { Team } from '@app/team/team';
+import { PlayersService } from '@app/components/players/players.service';
 
 @Component({
   selector: 'app-home',

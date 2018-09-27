@@ -4,12 +4,12 @@ import { MultaType } from '@app/core/multa-type/multa-type';
 import { MultaTypeService } from '@app/core/multa-type/multa-type.service';
 
 @Component({
-  selector: 'app-new-multe-type',
-  templateUrl: './new-multe-type.component.html',
-  styleUrls: ['./new-multe-type.component.scss'],
+  selector: 'app-new-multa-type',
+  templateUrl: './new-multa-type.component.html',
+  styleUrls: ['./new-multa-type.component.scss'],
 })
 
-export class NewMulteTypeComponent implements OnInit {
+export class NewMultaTypeComponent implements OnInit {
   multaType: MultaType;
 
   constructor(private multaTypeService: MultaTypeService) {}
