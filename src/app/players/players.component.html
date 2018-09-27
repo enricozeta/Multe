@@ -5,9 +5,9 @@
 
   <div class="content">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Cerca giocatore">
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Cerca giocatore">
     </mat-form-field>
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <table class="table" [dataSource]="dataSource" matSort mat-table>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">

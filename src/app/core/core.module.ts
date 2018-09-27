@@ -8,7 +8,7 @@ import { HomeService } from '@app/home/home.service';
 import { MultaService } from '@app/multa/multa.service';
 import { MultaTypeService } from '@app/multe-types/multaType.service';
 
-import { PlayerService } from '@app/player/player.service';
+import { PlayerService } from '@app/core/player/player.service';
 import { PlayersService } from '@app/players/players.service';
 import { ProfileService } from '@app/profile/profile.service';
 

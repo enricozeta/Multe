@@ -25,13 +25,13 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
 
-  // { path: 'multa', component: MultaComponent },
+  { path: 'multa', component: MultaComponent },
   // { path: 'multe-types', component: MulteTypesComponent },
 
   // { path: 'new-multaType', component: NewMulteTypeComponent },
   // { path: 'new-player', component: NewPlayerComponent },
 
-  // { path: 'player', component: PlayerComponent },
+  { path: 'player', component: PlayerComponent },
   { path: 'players', component: PlayersComponent },
   // { path: 'profile', component: ProfileComponent },
 

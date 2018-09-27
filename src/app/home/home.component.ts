@@ -21,20 +21,20 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService, private playersService: PlayersService) { }
 
   ngOnInit() {
-    this.initBest();
-    this.initTeam();
-    this.initWorst();
+    this._initBest();
+    this._initTeam();
+    this._initWorst();
 
     this.displayedColumns = ['name', 'total'];
   }
 
-  initBest() {
+  _initBest() {
     this.homeService.getTheBest().subscribe(data => {
       this.dataSourceBest = new MatTableDataSource(data);
     });
   }
 
-  initTeam() {
+  _initTeam() {
     this.homeService.getTeam().subscribe(data => {
       this.team = data;
 
@@ -42,13 +42,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  initWorst() {
+  _initWorst() {
     this.homeService.getTheWorst().subscribe(data => {
       this.dataSourceWorst = new MatTableDataSource(data);
     });
   }
 
   selectRow(row) {
-    this.playersService.getPlayer(row.id);
+    this.playersService.goToPlayer(row.id);
   }
 }

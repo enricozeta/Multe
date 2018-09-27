@@ -1,35 +1,34 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
-import {PlayersService} from './players.service';
-import { Player } from '../player/player';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+
+import { PlayersService } from './players.service';
+import { Player } from '@app/core/player/player';
 
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
-  styleUrls: ['./players.component.scss']
+  styleUrls: ['./players.component.scss'],
 })
+
 export class PlayersComponent implements OnInit {
-
-  displayedColumns: string[];
   dataSource: MatTableDataSource<Player>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  displayedColumns: string[];
 
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
 
-  constructor(private playerService: PlayersService) { }
+  @ViewChild(MatSort)
+  sort: MatSort;
+
+  constructor(private playerService: PlayersService) {}
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource();
-    this.initPlayers();
     this.displayedColumns = ['name', 'multeNonPagate', 'multePagate'];
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-  }
 
-  initPlayers() {
-    this.playerService.getPlayers().subscribe(data => {
-      this.dataSource = new MatTableDataSource<Player>(data);
-    });
+    this._initPlayers();
   }
 
   applyFilter(filterValue: string) {
@@ -39,7 +38,13 @@ export class PlayersComponent implements OnInit {
     }
   }
 
+  _initPlayers() {
+    this.playerService.getPlayers().subscribe(data => {
+      this.dataSource = new MatTableDataSource<Player>(data);
+    });
+  }
+
   selectRow(row) {
-    this.playerService.getPlayer(row.id);
+    this.playerService.goToPlayer(row.id);
   }
 }

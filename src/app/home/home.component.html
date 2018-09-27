@@ -11,7 +11,7 @@
         <mat-card class="card">
           <mat-card-title>I peggiori del mese</mat-card-title>
           <mat-card-content>
-            <table class="mat-elevation-z8 card-content" mat-table [dataSource]="dataSourceWorst" matSort>
+            <table class="card-content" mat-table [dataSource]="dataSourceWorst" matSort>
 
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
@@ -34,7 +34,7 @@
         <mat-card class="card">
           <mat-card-title>I migliori del mese</mat-card-title>
           <mat-card-content>
-            <table class="mat-elevation-z8 card-content" mat-table [dataSource]="dataSourceBest" matSort>
+            <table class="card-content" mat-table [dataSource]="dataSourceBest" matSort>
 
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>

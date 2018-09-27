@@ -1,5 +1,3 @@
-import { Player } from '../player/player';
-
 export class Multa {
   id: number;
   descrizione: string;

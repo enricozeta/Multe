@@ -10,6 +10,8 @@ import { MaterialModule } from '@app/theme/material.module';
 import { CoreModule } from '@app/core/core.module';
 import { SharedModule } from '@app/shared/shared.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // main component
 import { AppComponent } from './app.component';
 
@@ -22,11 +24,10 @@ import { MulteTypesComponent } from './multe-types/multe-types.component';
 import { NewMulteTypeComponent } from './new-multe-type/new-multe-type.component';
 import { NewPlayerComponent } from './new-player/new-player.component';
 
+import { PlayerComponent } from './player/player.component';
 import { PlayersComponent } from './players/players.component';
 /////
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
-import { PlayerComponent } from './player/player.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { StaffUserComponent } from './staff-user/staff-user.component';
 
@@ -36,22 +37,25 @@ import { TeamSettingsComponent } from './team-settings/team-settings.component';
 
 import { LoginComponent } from './login/login.component';
 
+import { MAT_DATE_LOCALE } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
 
     HomeComponent,
 
+    MultaComponent,
+
+    PlayerComponent,
     PlayersComponent,
 
-    // MultaComponent,
     // MulteTypesComponent,
 
     // NewMulteTypeComponent,
     // NewPlayerComponent,
 
     // ProfileComponent,
-    // PlayerComponent,
     // ChangePasswordComponent,
     // StaffUserComponent,
     // TeamComponent,
@@ -66,15 +70,17 @@ import { LoginComponent } from './login/login.component';
 
     MaterialModule,
 
-    // FormsModule,
-    // ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     // HttpClientModule,
     // ChartsModule
 
     SharedModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'it-IT' },
+  ],
   bootstrap: [
     AppComponent
   ]

@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Player } from '../player/player';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from '../../environments/environment';
+import { environment } from '@env/environment';
 
 @Injectable()
 export class PlayerService {
-
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   getPlayer() {
     const url = environment.baseUrl + '/player';
-    return this.http.get<Player>(url,
-      {
-        params: {
-          id: this.activatedRoute.snapshot.queryParams['id'],
-        }
-      });
+    return this.http.get<Player>(url, {
+      params: {
+        id: this.activatedRoute.snapshot.queryParams['id'],
+      },
+    });
   }
 
-  getMulta(index: number) {
+  goToMulta(index: number) {
     this.router.navigate(['/multa'], { queryParams: { id: index } });
   }
 }
