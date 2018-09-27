@@ -1,18 +1,18 @@
-/* Structure */
-table {
-  width: 100%;
-}
+@import '~app/style/style';
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+.team {
+  height: 100%;
 
-.button-row button,
-.button-row a {
-  margin-right: 30px;
-}
+  .content {
+    padding: 24px;
+  }
 
-th.mat-sort-header-sorted {
-  color: black;
+  .header {
+    padding: 24px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
 }

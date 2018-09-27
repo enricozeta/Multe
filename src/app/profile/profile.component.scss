@@ -1,21 +1,18 @@
-.profile-container {
-  display: flex;
-  flex-direction: column;
-}
+@import '~app/style/style';
 
-.profile-container > * {
-  width: 100%;
-}
+.profile {
+  height: 100%;
 
-.profile-right-align {
-  text-align: right;
-}
+  .content {
+    padding: 24px;
+  }
 
-input.profile-right-align::-webkit-outer-spin-button,
-input.profile-right-align::-webkit-inner-spin-button {
-  display: none;
-}
+  .header {
+    padding: 24px;
+  }
 
-input.profile-right-align {
-  -moz-appearance: textfield;
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -1,21 +1,18 @@
-.player-container {
-  display: flex;
-  flex-direction: column;
-}
+@import '~app/style/style';
 
-.player-container > * {
-  width: 100%;
-}
+.new-player {
+  height: 100%;
 
-.player-right-align {
-  text-align: right;
-}
+  .content {
+    padding: 24px;
+  }
 
-input.player-right-align::-webkit-outer-spin-button,
-input.player-right-align::-webkit-inner-spin-button {
-  display: none;
-}
+  .header {
+    padding: 24px;
+  }
 
-input.player-right-align {
-  -moz-appearance: textfield;
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
 }

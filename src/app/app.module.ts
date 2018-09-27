@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 // application component
+import { ChangePasswordComponent } from './change-password/change-password.component';
+
 import { HomeComponent } from './home/home.component';
 
 import { MultaComponent } from './multa/multa.component';
@@ -26,22 +28,22 @@ import { NewPlayerComponent } from './new-player/new-player.component';
 
 import { PlayerComponent } from './player/player.component';
 import { PlayersComponent } from './players/players.component';
-/////
 import { ProfileComponent } from './profile/profile.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+
 import { StaffUserComponent } from './staff-user/staff-user.component';
 
-import { ChartsModule } from 'ng2-charts';
 import { TeamComponent } from './team/team.component';
 import { TeamSettingsComponent } from './team-settings/team-settings.component';
 
-import { LoginComponent } from './login/login.component';
-
 import { MAT_DATE_LOCALE } from '@angular/material';
+
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    ChangePasswordComponent,
 
     HomeComponent,
 
@@ -49,17 +51,16 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     MulteTypesComponent,
 
     NewMulteTypeComponent,
+    NewPlayerComponent,
 
     PlayerComponent,
     PlayersComponent,
+    ProfileComponent,
 
-    // NewPlayerComponent,
+    StaffUserComponent,
 
-    // ProfileComponent,
-    // ChangePasswordComponent,
-    // StaffUserComponent,
-    // TeamComponent,
-    // TeamSettingsComponent,
+    TeamComponent,
+    TeamSettingsComponent,
     // LoginComponent
   ],
   imports: [
@@ -72,8 +73,6 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 
     FormsModule,
     ReactiveFormsModule,
-    // HttpClientModule,
-    // ChartsModule
 
     SharedModule,
     CoreModule

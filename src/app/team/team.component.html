@@ -1,19 +1,20 @@
-<mat-card class="card">
-    <mat-card-title>La tua squadra</mat-card-title>
-    <mat-divider></mat-divider>
-    <br>
-    <mat-card-content>
-      <div class="player-container">
-        <mat-form-field>
-          <input matInput placeholder="Nome" value="{{team.name}}" required>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Cassa" type="number" value="{{team.paid}}" class="example-right-align">
-          <span matPrefix>€&nbsp;</span>
-        </mat-form-field>
-        <button mat-raised-button color="primary">Salva</button>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <br>
+<div class="team">
+  <div class="header">
+    <h1>La tua squadra</h1>
+  </div>
 
+  <div class="content">
+    <div class="form">
+      <mat-form-field>
+        <input matInput [(ngModel)]="team.name" placeholder="Nome" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="team.paid" placeholder="Cassa" type="number">
+        <span matsuffix>€&nbsp;</span>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Salva</button>
+    </div>
+  </div>
+</div>

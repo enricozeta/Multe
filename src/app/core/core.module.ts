@@ -12,7 +12,7 @@ import { PlayerService } from '@app/core/player/player.service';
 import { PlayersService } from '@app/players/players.service';
 import { ProfileService } from '@app/profile/profile.service';
 
-import { TeamService } from '@app/team/team.service';
+import { TeamService } from '@app/core/team/team.service';
 
 @NgModule({
   imports: [
@@ -27,7 +27,8 @@ import { TeamService } from '@app/team/team.service';
     MultaTypeService,
     PlayerService,
     PlayersService,
-    ProfileService
+    ProfileService,
+    TeamService
   ]
 })
 export class CoreModule { }
