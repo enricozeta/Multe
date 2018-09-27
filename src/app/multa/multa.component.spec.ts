@@ -8,9 +8,8 @@ describe('MultaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultaComponent ]
-    })
-    .compileComponents();
+      declarations: [MultaComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

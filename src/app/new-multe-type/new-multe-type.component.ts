@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {MultaTypeService} from '../multe-types/multaType.service';
-import { MultaType } from '../multe-types/multeType';
+
+import { MultaType } from '@app/core/multa-type/multa-type';
+import { MultaTypeService } from '@app/core/multa-type/multa-type.service';
 
 @Component({
   selector: 'app-new-multe-type',
   templateUrl: './new-multe-type.component.html',
-  styleUrls: ['./new-multe-type.component.scss']
+  styleUrls: ['./new-multe-type.component.scss'],
 })
-export class NewMulteTypeComponent implements OnInit {
 
+export class NewMulteTypeComponent implements OnInit {
   multaType: MultaType;
 
-  constructor(private multaTypeService: MultaTypeService) { }
+  constructor(private multaTypeService: MultaTypeService) {}
 
   ngOnInit() {
-    this.onInitMultaType();
+    this.multaType = new MultaType();
+
+    // this._onInitMultaType();
   }
 
-  onInitMultaType() {
-    this.multaTypeService.getMultaTypeById().subscribe(data => {
-      this.multaType = data;
-    });
-  }
-
+  // _onInitMultaType() {
+  //   this.multaTypeService.getMultaTypeById().subscribe(data => {
+  //     this.multaType = data;
+  //   });
+  // }
 }

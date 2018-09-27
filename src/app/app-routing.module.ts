@@ -26,9 +26,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   { path: 'multa', component: MultaComponent },
-  // { path: 'multe-types', component: MulteTypesComponent },
+  { path: 'multe-types', component: MulteTypesComponent },
 
-  // { path: 'new-multaType', component: NewMulteTypeComponent },
+  { path: 'new-multaType', component: NewMulteTypeComponent },
   // { path: 'new-player', component: NewPlayerComponent },
 
   { path: 'player', component: PlayerComponent },

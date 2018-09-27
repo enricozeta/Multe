@@ -16,17 +16,3 @@
     flex-direction: column;
   }
 }
-
-.multa-right-align {
-  text-align: right;
-}
-
-input.multa-right-align::-webkit-outer-spin-button,
-input.multa-right-align::-webkit-inner-spin-button {
-  display: none;
-}
-
-input.multa-right-align {
-  -moz-appearance: textfield;
-}
-

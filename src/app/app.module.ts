@@ -46,13 +46,13 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     HomeComponent,
 
     MultaComponent,
+    MulteTypesComponent,
+
+    NewMulteTypeComponent,
 
     PlayerComponent,
     PlayersComponent,
 
-    // MulteTypesComponent,
-
-    // NewMulteTypeComponent,
     // NewPlayerComponent,
 
     // ProfileComponent,

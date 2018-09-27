@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Multa } from './multa';
-import { MultaType } from '@app/multe-types/multeType';
+import { MultaType } from '@app/core/multa-type/multa-type';
 
 import { environment } from '@env/environment';
 

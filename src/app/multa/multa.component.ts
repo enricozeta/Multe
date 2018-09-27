@@ -5,7 +5,7 @@ import { map, startWith } from 'rxjs/operators';
 
 import { Multa } from './multa';
 import { MultaService } from './multa.service';
-import { MultaType } from '@app/multe-types/multeType';
+import { MultaType } from '@app/core/multa-type/multa-type';
 
 import { Player } from '@app/core/player/player';
 import { PlayersService } from '@app/players/players.service';

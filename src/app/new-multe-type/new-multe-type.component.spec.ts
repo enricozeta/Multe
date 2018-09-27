@@ -8,9 +8,8 @@ describe('NewMulteTypeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewMulteTypeComponent ]
-    })
-    .compileComponents();
+      declarations: [NewMulteTypeComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
