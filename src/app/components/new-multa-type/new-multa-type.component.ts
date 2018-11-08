@@ -25,4 +25,8 @@ export class NewMultaTypeComponent implements OnInit {
   //     this.multaType = data;
   //   });
   // }
+
+  addMulta(): void {
+    this.multaTypeService.saveMultaType(this.multaType);
+  }
 }

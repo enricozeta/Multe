@@ -29,4 +29,10 @@ export class MultaTypeService {
       },
     });
   }
+
+  saveMultaType (multaType: MultaType): Observable<MultaType> {
+    console.log('a');
+    const url = environment.baseUrl + '/multaType';
+    return this.http.post<MultaType>(url, multaType);
+  }
 }

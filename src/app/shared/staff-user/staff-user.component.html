@@ -1,24 +1,23 @@
 <div class="staff-user">
-  <div class="header">
-    <h1>Staff user</h1>
-    <h2>È l'utente che useranno i tuoi compagni di squadra per loggarsi</h2>
-  </div>
+  <mat-card class="card">
+    <mat-card-title>Staff user</mat-card-title>
+    <mat-card-content>
+      <h2>È l'utente che useranno i tuoi compagni di squadra per loggarsi</h2>
+      <div class="form">
+          <mat-form-field>
+            <input matInput placeholder="Username" type="text" required>
+          </mat-form-field>
 
-  <div class="content">
-    <div class="form">
-      <mat-form-field>
-        <input disabled matInput placeholder="Username" type="text" required>
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password" type="password" required>
+          </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Password" type="password" required>
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Conferma password" type="password" required>
+          </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Conferma password" type="password" required>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary">Salva</button>
-    </div>
-  </div>
+          <button mat-raised-button color="primary">Salva</button>
+        </div>
+    </mat-card-content>
+  </mat-card>
 </div>

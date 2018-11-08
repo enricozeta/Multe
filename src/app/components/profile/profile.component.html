@@ -1,32 +1,32 @@
 <div class="profile">
-  <div class="header">
-    <h1>Profilo</h1>
-  </div>
+  <mat-card class="card">
+    <mat-card-title>Profilo</mat-card-title>
+    <mat-card-content>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Nome" [(ngModel)]="user.name" required>
+        </mat-form-field>
 
-  <div class="content">
-    <div class="form">
-      <mat-form-field>
-        <input matInput placeholder="Nome" [(ngModel)]="user.name" required>
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cognome" [(ngModel)]="user.surname" required>
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Cognome" [(ngModel)]="user.surname" required>
-      </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" [(ngModel)]="user.email" required disabled>
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" [(ngModel)]="user.email" required disabled>
-      </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Squadra" [(ngModel)]="user.team" required disabled>
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Squadra" [(ngModel)]="user.team" required disabled>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary">Salva</button>
-    </div>
-
-    <div class="form">
-      <button color="warn" mat-raised-button>Elimina la squadra</button>
-      <button color="warn" mat-raised-button>Cancella Profilo</button>
-    </div>
-  </div>
+        <button mat-raised-button color="primary">Salva</button>
+        <br>
+      </div>
+      <div class="form">
+        <button color="warn" mat-raised-button>Elimina la squadra</button>
+        <br>
+        <button color="warn" mat-raised-button>Cancella Profilo</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

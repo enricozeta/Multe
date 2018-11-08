@@ -1,41 +1,41 @@
 <div class="new-multa">
-  <div class="header">
-    <h1>Nuova multa</h1>
-  </div>
+  <mat-card class="card">
+    <mat-card-title>Nuova multa</mat-card-title>
+    <mat-card-content>
+      <div class="form">
+          <mat-form-field>
+            <input type="text" placeholder="Giocatore" aria-label="Giocatore" matInput [formControl]="form" [matAutocomplete]="auto" required>
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{ option.name }} {{ option.surname }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-  <div class="content">
-    <div class="form">
-      <mat-form-field>
-        <input type="text" placeholder="Giocatore" aria-label="Giocatore" matInput [formControl]="form" [matAutocomplete]="auto" required>
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{ option.name }} {{ option.surname }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+          <mat-form-field>
+            <mat-select [(ngModel)]="multeTypeSelected" placeholder="Multa" name="multaType" required>
+              <mat-option *ngFor="let multaType of multeType" [value]="multaType.valore">
+                {{multaType.descrizione}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <mat-form-field>
-        <mat-select [(ngModel)]="multeTypeSelected" placeholder="Multa" name="multaType" required>
-          <mat-option *ngFor="let multaType of multeType" [value]="multaType.valore">
-            {{multaType.descrizione}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Valore" type="number" value="{{ multeTypeSelected }}" required>
+            <span matSuffix>€&nbsp;</span>
+          </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Valore" type="number" value="{{ multeTypeSelected }}" required>
-        <span matSuffix>€&nbsp;</span>
-      </mat-form-field>
+          <mat-form-field>
+            <input matInput [matDatepicker]="datepicker" placeholder="Data">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+          </mat-form-field>
 
-      <mat-form-field>
-        <input matInput [matDatepicker]="datepicker" placeholder="Data">
-        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-        <mat-datepicker #datepicker></mat-datepicker>
-      </mat-form-field>
+          <mat-checkbox color="primary">Multa pagata</mat-checkbox>
 
-      <mat-checkbox color="primary">Multa pagata</mat-checkbox>
-
-      <button color="primary" mat-raised-button>Salva</button>
-    </div>
-  </div>
+          <br>
+          <button color="primary" mat-raised-button>Salva</button>
+        </div>
+    </mat-card-content>
+  </mat-card>
 </div>

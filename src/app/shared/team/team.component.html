@@ -1,20 +1,19 @@
 <div class="team">
-  <div class="header">
-    <h1>La tua squadra</h1>
-  </div>
+  <mat-card class="card">
+    <mat-card-title>La tua squadra</mat-card-title>
+    <mat-card-content>
+      <div class="form">
+        <mat-form-field>
+          <input matInput [(ngModel)]="team.name" placeholder="Nome" required>
+        </mat-form-field>
 
-  <div class="content">
-    <div class="form">
-      <mat-form-field>
-        <input matInput [(ngModel)]="team.name" placeholder="Nome" required>
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="team.paid" placeholder="Cassa" type="number">
+          <span matSuffix>€&nbsp;</span>
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput [(ngModel)]="team.paid" placeholder="Cassa" type="number">
-        <span matsuffix>€&nbsp;</span>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary">Salva</button>
-    </div>
-  </div>
+        <button mat-raised-button color="primary">Salva</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

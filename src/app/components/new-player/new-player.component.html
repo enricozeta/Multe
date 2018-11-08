@@ -1,29 +1,29 @@
 <div class="new-player">
-  <div class="header">
-    <h1>Nuovo giocatore</h1>
-  </div>
+  <mat-card class="card">
+    <mat-card-title>Nuovo giocatore</mat-card-title>
+    <mat-card-content>
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Nome" required>
+        </mat-form-field>
 
-  <div class="content">
-    <div class="form">
-      <mat-form-field>
-        <input matInput placeholder="Nome" required>
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cognome" required>
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Cognome" required>
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Multe già pagate" type="number">
+          <span matSuffix>€&nbsp;</span>
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Multe già pagate" type="number">
-        <span matSuffix>€&nbsp;</span>
-      </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Multe da pagare" type="number">
+          <span matSuffix>€&nbsp;</span>
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Multe da pagare" type="number">
-        <span matSuffix>€&nbsp;</span>
-      </mat-form-field>
-
-      <button color="primary" mat-raised-button>Salva</button>
-    </div>
-  </div>
+        <button color="primary" mat-raised-button>Salva</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
+
