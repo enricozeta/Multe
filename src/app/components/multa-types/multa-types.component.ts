@@ -13,19 +13,16 @@ import { MultaTypeService } from '@app/core/multa-type/multa-type.service';
 export class MultaTypesComponent implements OnInit {
   dataSource: MatTableDataSource<MultaType>;
   displayedColumns: string[];
-
-  @ViewChild(MatPaginator)
-  paginator: MatPaginator;
-
-  @ViewChild(MatSort)
-  sort: MatSort;
+  visible: boolean;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private multaTypeService: MultaTypeService) {}
 
   ngOnInit() {
-    this.displayedColumns = ['descrizione', 'valore'];
-
+    this.visible = true;
     this._onInitMulteType();
+    this.displayedColumns = ['descrizione', 'valore'];
   }
 
   applyFilter(filterValue: string) {
@@ -38,7 +35,14 @@ export class MultaTypesComponent implements OnInit {
 
   _onInitMulteType() {
     this.multaTypeService.getMultaType().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource( data.sort(function(a, b) {
+        return a.descrizione.localeCompare(b.descrizione);
+      }));
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      if (data.length === 0) {
+        this.visible = false;
+      }
     });
   }
 }

@@ -1,1 +1,9 @@
 @import 'settings';
+
+.center {
+  text-align: center;
+
+  .mat-raised-button{
+    margin: 0px 10px;
+  }
+}

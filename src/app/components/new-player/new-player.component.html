@@ -1,29 +1,23 @@
 <div class="new-player">
-  <mat-card class="card">
-    <mat-card-title>Nuovo giocatore</mat-card-title>
-    <mat-card-content>
-      <div class="form">
-        <mat-form-field>
-          <input matInput placeholder="Nome" required>
-        </mat-form-field>
+  <div class="content">
+    <mat-card class="card">
+      <mat-card-title>{{title}}</mat-card-title>
+      <mat-card-content>
+        <div class="form">
+          <mat-form-field>
+            <input matInput [(ngModel)]="player.name" placeholder="Nome" required>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="Cognome" required>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Multe già pagate" type="number">
-          <span matSuffix>€&nbsp;</span>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Multe da pagare" type="number">
-          <span matSuffix>€&nbsp;</span>
-        </mat-form-field>
-
-        <button color="primary" mat-raised-button>Salva</button>
-      </div>
-    </mat-card-content>
-  </mat-card>
+          <mat-form-field>
+            <input matInput [(ngModel)]="player.surname" placeholder="Cognome" required>
+          </mat-form-field>
+          <div class="center">
+              <button color="primary" mat-raised-button (click)="_addPlayer()">Salva</button>
+              <button *ngIf="showDelete" mat-raised-button (click)="_deletePlayer()" color="warn">Elimina</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 

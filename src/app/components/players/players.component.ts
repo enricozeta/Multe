@@ -11,24 +11,19 @@ import { PlayersService } from './players.service';
 })
 
 export class PlayersComponent implements OnInit {
+  visible: Boolean;
   dataSource: MatTableDataSource<Player>;
   displayedColumns: string[];
-
-  @ViewChild(MatPaginator)
-  paginator: MatPaginator;
-
-  @ViewChild(MatSort)
-  sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private playerService: PlayersService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource();
-    this.displayedColumns = ['name', 'multeNonPagate', 'multePagate'];
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-
+    this.visible = true;
     this._initPlayers();
+    this.displayedColumns = ['name', 'multeNonPagate', 'multePagate'];
+
   }
 
   applyFilter(filterValue: string) {
@@ -40,7 +35,14 @@ export class PlayersComponent implements OnInit {
 
   _initPlayers() {
     this.playerService.getPlayers().subscribe(data => {
-      this.dataSource = new MatTableDataSource<Player>(data);
+      this.dataSource = new MatTableDataSource(data.sort(function(a, b) {
+        return a.surname.localeCompare(b.surname);
+      }));
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      if (data.length === 0) {
+        this.visible = false;
+      }
     });
   }
 

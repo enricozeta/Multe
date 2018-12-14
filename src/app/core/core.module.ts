@@ -10,7 +10,7 @@ import { MultaTypeService } from '@app/core/multa-type/multa-type.service';
 
 import { PlayerService } from '@app/core/player/player.service';
 import { PlayersService } from '@app/components/players/players.service';
-import { ProfileService } from '@app/components/profile/profile.service';
+import { ProfileService } from '@app/core/profile/profile.service';
 
 import { TeamService } from '@app/core/team/team.service';
 

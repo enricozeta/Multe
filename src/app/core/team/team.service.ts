@@ -15,4 +15,10 @@ export class TeamService {
     const url = environment.baseUrl + '/team';
     return this.http.get<Team>(url);
   }
+
+  saveTeam(team: Team): Observable<Boolean> {
+    const url = environment.baseUrl + '/admin/team';
+    return this.http.post<Boolean>(url, team);
+  }
+
 }

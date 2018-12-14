@@ -1,41 +1,47 @@
 <div class="new-multa">
-  <mat-card class="card">
-    <mat-card-title>Nuova multa</mat-card-title>
-    <mat-card-content>
-      <div class="form">
-          <mat-form-field>
-            <input type="text" placeholder="Giocatore" aria-label="Giocatore" matInput [formControl]="form" [matAutocomplete]="auto" required>
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{ option.name }} {{ option.surname }}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
+  <div class="content">
+    <mat-card class="card">
+      <mat-card-title>{{title}}</mat-card-title>
+      <mat-card-content>
+        <div class="form" *ngIf="!playersNotFound && !multeTypeNotFound">
+              <mat-form-field>
+                <mat-select [(ngModel)]="multa.playerId" placeholder="Giocatore" name="player" required>
+                  <mat-option *ngFor="let player of players" [value]="player.id">
+                    {{ player.name }} {{ player.surname }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-          <mat-form-field>
-            <mat-select [(ngModel)]="multeTypeSelected" placeholder="Multa" name="multaType" required>
-              <mat-option *ngFor="let multaType of multeType" [value]="multaType.valore">
-                {{multaType.descrizione}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+              <mat-form-field>
+                <mat-select [(ngModel)]="multa.multeTypeId" placeholder="Multa" name="multaType" (selectionChange)="changeType()" required>
+                  <mat-option *ngFor="let multaType of multeType" [value]="multaType.id">
+                    {{multaType.descrizione}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Valore" type="number" value="{{ multeTypeSelected }}" required>
-            <span matSuffix>€&nbsp;</span>
-          </mat-form-field>
+              <mat-form-field>
+                <input matInput [(ngModel)]="multa.valore" placeholder="Valore" type="number" required>
+                <span matSuffix>€&nbsp;</span>
+              </mat-form-field>
 
-          <mat-form-field>
-            <input matInput [matDatepicker]="datepicker" placeholder="Data">
-            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-            <mat-datepicker #datepicker></mat-datepicker>
-          </mat-form-field>
+              <mat-form-field>
+                <input matInput [matDatepicker]="datepicker" [(ngModel)]="multa.data" placeholder="Data">
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker></mat-datepicker>
+              </mat-form-field>
 
-          <mat-checkbox color="primary">Multa pagata</mat-checkbox>
+              <mat-checkbox [(ngModel)]="multa.pagata" color="primary">Multa pagata</mat-checkbox>
 
-          <br>
-          <button color="primary" mat-raised-button>Salva</button>
-        </div>
-    </mat-card-content>
-  </mat-card>
+              <br>
+              <div class="center">
+                <button color="primary" mat-raised-button (click)="addMulta()" >Salva</button>
+                <button *ngIf="showDelete" mat-raised-button (click)="deleteMulta()" color="warn">Elimina</button>
+              </div>
+          </div>
+          <h3 *ngIf="multeTypeNotFound">La tua squadra non ha nessun tipo di multa! :) Inizia ad inserirle <a routerLink="/new-multa-type">qui</a>.</h3>
+          <h3 *ngIf="playersNotFound">La tua squadra non ha nessun giocatore! :) Inizia ad inserirli <a routerLink="/new-player">qui</a>.</h3>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-
-import { ProfileService } from './profile.service';
+import { ProfileService } from '@app/core/profile/profile.service';
+import { Profile } from '@app/core/profile/profile';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,21 +12,25 @@ import { ProfileService } from './profile.service';
 
 export class ProfileComponent implements OnInit {
   emailFormControl = new FormControl();
+  profile: Profile;
 
-  user: object;
-
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-    this.user = {};
-
+    this.profile = new Profile();
     this._onInitUser();
   }
 
   _onInitUser() {
     this.profileService.getUser().subscribe(data => {
-      this.user = data;
+      this.profile = data;
+    });
+  }
+
+  _save() {
+    this.profileService.saveUser(this.profile).subscribe(data => {
+      this.router.navigate(['/profile']);
     });
   }
 }

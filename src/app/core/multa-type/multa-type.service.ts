@@ -21,18 +21,27 @@ export class MultaTypeService {
     this.router.navigate(['/new-multa-type'], { queryParams: { id: index } });
   }
 
-  getMultaTypeById(id) {
+  getMultaTypeById(multaTypeId: string): Observable<MultaType> {
     const url = environment.baseUrl + '/multaType';
     return this.http.get<MultaType>(url, {
       params: {
-        id: this.activatedRoute.snapshot.queryParams['id'],
+        id: multaTypeId,
       },
     });
   }
 
   saveMultaType (multaType: MultaType): Observable<MultaType> {
-    console.log('a');
-    const url = environment.baseUrl + '/multaType';
+    const url = environment.baseUrl + '/admin/multaType';
     return this.http.post<MultaType>(url, multaType);
   }
+
+  deleteMultaTypeById(multaTypeId: string): Observable<Boolean> {
+    const url = environment.baseUrl + '/admin/multaType';
+    return this.http.delete<Boolean>(url, {
+      params: {
+        id: multaTypeId,
+      },
+    });
+  }
+
 }

@@ -1,29 +1,32 @@
 <div class="multa-types">
-  <mat-card class="card">
-    <mat-card-title>Tipologia multe</mat-card-title>
-    <button mat-raised-button color="primary" routerLink="/new-multa-type">Nuova</button>
-    <mat-card-content>
-      <mat-form-field>
-          <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Cerca multe">
-        </mat-form-field>
-        <table class="table" mat-table [dataSource]="dataSource" matSort>
+  <div class="content">
+    <mat-card class="card">
+      <mat-card-title>Tipologia multe</mat-card-title>
+      <button *ngIf="visible" mat-raised-button color="primary" routerLink="/new-multa-type">Nuova</button>
+      <mat-card-content *ngIf="visible">
+        <mat-form-field>
+            <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Cerca multe">
+          </mat-form-field>
+          <table class="table" mat-table [dataSource]="dataSource" matSort>
 
-          <!-- Descrizione  Column -->
-          <ng-container matColumnDef="descrizione">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Descrizione</th>
-            <td mat-cell *matCellDef="let element">{{ element.descrizione }}</td>
-          </ng-container>
+            <!-- Descrizione  Column -->
+            <ng-container matColumnDef="descrizione">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Descrizione</th>
+              <td mat-cell *matCellDef="let element">{{ element.descrizione }}</td>
+            </ng-container>
 
-          <!-- Valore Column -->
-          <ng-container matColumnDef="valore">
-            <th mat-header-cell *matHeaderCellDef>Valore</th>
-            <td mat-cell *matCellDef="let element">{{ element.valore }} €</td>
-          </ng-container>
+            <!-- Valore Column -->
+            <ng-container matColumnDef="valore">
+              <th mat-header-cell *matHeaderCellDef>Valore</th>
+              <td mat-cell *matCellDef="let element">{{ element.valore }} €</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></tr>
-        </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-    </mat-card-content>
-  </mat-card>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></tr>
+          </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </mat-card-content>
+      <h3 *ngIf="!visible">La tua squadra non ha nessun tipo di multa! :) Inizia ad inserirle <a routerLink="/new-multa-type">qui</a>.</h3>
+    </mat-card>
+  </div>
 </div>

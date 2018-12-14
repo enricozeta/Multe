@@ -1,32 +1,34 @@
 <div class="profile">
-  <mat-card class="card">
-    <mat-card-title>Profilo</mat-card-title>
-    <mat-card-content>
-      <div class="form">
-        <mat-form-field>
-          <input matInput placeholder="Nome" [(ngModel)]="user.name" required>
-        </mat-form-field>
+  <div class="content">
+    <mat-card class="card">
+      <mat-card-title>Profilo</mat-card-title>
+      <mat-card-content>
+        <div class="form">
+          <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="profile.name" required>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="Cognome" [(ngModel)]="user.surname" required>
-        </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Cognome" [(ngModel)]="profile.surname" required>
+          </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email" [(ngModel)]="user.email" required disabled>
-        </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" [(ngModel)]="profile.email" required disabled>
+          </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Squadra" [(ngModel)]="user.team" required disabled>
-        </mat-form-field>
-
-        <button mat-raised-button color="primary">Salva</button>
-        <br>
-      </div>
-      <div class="form">
-        <button color="warn" mat-raised-button>Elimina la squadra</button>
-        <br>
-        <button color="warn" mat-raised-button>Cancella Profilo</button>
-      </div>
-    </mat-card-content>
-  </mat-card>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Squadra" [(ngModel)]="profile.team" required disabled>
+          </mat-form-field>
+          <div class="center">
+            <button mat-raised-button color="primary" (click)="_save()">Salva</button>
+          </div>
+          <br>
+        </div>
+        <div class="center">
+          <button color="warn" mat-raised-button>Elimina la squadra</button>
+          <button color="warn" mat-raised-button>Cancella Profilo</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

@@ -1,42 +1,47 @@
 <div class="player">
-  <div class="new-multa-type">
-    <mat-card class="card">
-      <mat-card-title>{{ player.name }} {{ player.surname }}
-        <div class="button-row">
-          <button mat-flat-button color="warn">Da Pagare {{ player.multeNonPagate }} €</button>
-          <button mat-flat-button color="primary">Pagate {{ player.multePagate }} €</button>
-        </div>
-      </mat-card-title>
-      <mat-card-content>
-        <table class="table" [dataSource]="dataSource" mat-table>
+  <div class="content">
+    <div class="new-multa-type">
+      <mat-card class="card">
+        <mat-card-title>{{ player.name }} {{ player.surname }}
+          <div class="button-row">
+            <button mat-flat-button color="warn">Da Pagare {{ player.multeNonPagate }} €</button>
+            <button mat-flat-button color="primary">Pagate {{ player.multePagate }} €</button>
+          </div>
+        </mat-card-title>
+        <mat-card-content>
+          <table *ngIf="player.multeNonPagate != 0 || player.multePagate != 0" class="table" [dataSource]="dataSource" mat-table>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="descrizione">
-              <th mat-header-cell *matHeaderCellDef>Multa</th>
-              <td mat-cell *matCellDef="let element">{{ element.descrizione }}</td>
-            </ng-container>
+              <!-- Name Column -->
+              <ng-container matColumnDef="descrizione">
+                <th mat-header-cell *matHeaderCellDef>Multa</th>
+                <td mat-cell *matCellDef="let element">{{ element.descrizione }}</td>
+              </ng-container>
 
-            <!-- Da Pagare Column -->
-            <ng-container matColumnDef="data">
-              <th mat-header-cell *matHeaderCellDef>Data</th>
-              <td mat-cell *matCellDef="let element">{{ element.data | date:"dd/MM/yyyy" }}</td>
-            </ng-container>
+              <!-- Da Pagare Column -->
+              <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef>Data</th>
+                <td mat-cell *matCellDef="let element">{{ element.data | date:"dd-MMM" }}</td>
+              </ng-container>
 
-            <!-- Pagate Column -->
-            <ng-container matColumnDef="pagata">
-              <th mat-header-cell *matHeaderCellDef>Pagata</th>
-              <td mat-cell *matCellDef="let element">{{ element.pagata }}</td>
-            </ng-container>
+              <!-- Valore Column -->
+              <ng-container matColumnDef="valore">
+                <th mat-header-cell *matHeaderCellDef>Valore</th>
+                <td mat-cell *matCellDef="let element">{{ element.valore }} €</td>
+              </ng-container>
 
-            <!-- Valore Column -->
-            <ng-container matColumnDef="valore">
-              <th mat-header-cell *matHeaderCellDef>Valore</th>
-              <td mat-cell *matCellDef="let element">{{ element.valore }} €</td>
-            </ng-container>
+              <!-- Pagate Column -->
+              <ng-container matColumnDef="pagata">
+                <th mat-header-cell *matHeaderCellDef>Pagata</th>
+                <td mat-cell *matCellDef="let element">{{ element.pagata }}</td>
+              </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr (click)="selectRow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-      </mat-card-content>
-    </mat-card>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr (click)="selectRow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator *ngIf="player.multeNonPagate != 0 || player.multePagate != 0" [pageSizeOptions]="[5]"></mat-paginator>
+        </mat-card-content>
+        <h3 *ngIf="player.multeNonPagate == 0 && player.multePagate == 0">Nessuna multa, è impossible!!</h3>
+      </mat-card>
+    </div>
 </div>
+<app-new-player></app-new-player>

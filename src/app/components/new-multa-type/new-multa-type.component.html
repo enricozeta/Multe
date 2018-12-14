@@ -1,19 +1,21 @@
 <div class="new-multa-type">
   <mat-card class="card">
-    <mat-card-title>Nuova tipologia di multa</mat-card-title>
+    <mat-card-title>{{title}}</mat-card-title>
     <mat-card-content>
       <div class="content">
         <div class="form">
           <mat-form-field>
             <input matInput [(ngModel)]="multaType.descrizione" placeholder="Descrizione" type="text" required>
           </mat-form-field>
-
           <mat-form-field>
             <input matInput [(ngModel)]="multaType.valore" placeholder="Valore" type="number" required>
             <span matSuffix>€&nbsp;</span>
           </mat-form-field>
 
-          <button mat-raised-button (click)="addMulta()" color="primary">Salva</button>
+          <div class="center">
+            <button mat-raised-button (click)="addMultaType()" color="primary">Salva</button>
+            <button *ngIf="showDelete" mat-raised-button (click)="deleteMulta()" color="warn">Elimina</button>
+          </div>
         </div>
       </div>
     </mat-card-content>

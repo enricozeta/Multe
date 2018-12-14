@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { Router } from '@angular/router';
-
+import { MatTableDataSource, MatPaginator, MatSort, MatSortable} from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Player } from '@app/core/player/player';
 import { PlayerService } from '@app/core/player/player.service';
+import { Multa } from '@app/core/multa/multa';
 
 @Component({
   selector: 'app-player',
@@ -12,27 +12,21 @@ import { PlayerService } from '@app/core/player/player.service';
 })
 
 export class PlayerComponent implements OnInit {
-  dataSource: any;
+  dataSource: MatTableDataSource<Multa>;
   displayedColumns: string[];
   player: Player;
+  id: string;
+  multe: Multa[];
 
-  @ViewChild(MatPaginator)
-  paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  @ViewChild(MatSort)
-  sort: MatSort;
-
-  constructor(private playerService: PlayerService, private router: Router) {}
+  constructor(private playerService: PlayerService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.dataSource = {
-      paginator: this.paginator,
-      sort: this.sort,
-    };
-
-    this.displayedColumns = ['descrizione', 'data', 'pagata', 'valore'];
-
+    this.player = new Player();
     this._onInitPlayer();
+    this.displayedColumns = ['descrizione', 'data', 'pagata', 'valore'];
   }
 
   selectRow(row) {
@@ -41,9 +35,17 @@ export class PlayerComponent implements OnInit {
   }
 
   _onInitPlayer() {
-    this.playerService.getPlayer().subscribe(data => {
+    this.id = this.activatedRoute.snapshot.queryParams['id'];
+    this.playerService.getPlayer(this.id).subscribe(data => {
       this.player = data;
+      this.multe = data.multe;
+      this.multe.sort(function(a, b) {
+        return +new Date(b.data) - +new Date(a.data);
+      });
       this.dataSource = new MatTableDataSource(this.player.multe);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
+
 }

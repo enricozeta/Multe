@@ -12,8 +12,6 @@ export class StaffUserComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:29090/admin/team').subscribe(data => {
-      console.log(data);
-    });
   }
+
 }

@@ -19,24 +19,26 @@ export class MultaService {
     return this.http.get<MultaType[]>(url);
   }
 
-  getMulta() {
+  getMulta(multaId: string): Observable<Multa> {
     const url = environment.baseUrl + '/multa';
-    if (this.router.queryParams.subscribe != null) {
-      const index = this.router.snapshot.queryParams['id'];
-      if (index != null) {
-        return this.http.get<Multa>(url, {
-          params: {
-            id: index,
-          },
-        });
-      }
-      return this.multa;
-    }
-    return this.multa;
+    return this.http.get<Multa>(url, {
+      params: {
+        id: multaId,
+      },
+    });
   }
 
   saveMulta(multa: Multa) {
-    const url = environment.baseUrl + '/multa';
+    const url = environment.baseUrl + '/admin/multa';
     return this.http.post<Multa>(url, multa);
+  }
+
+  deleteMultaById(multaTypeId: string): Observable<Boolean> {
+    const url = environment.baseUrl + '/admin/multa';
+    return this.http.delete<Boolean>(url, {
+      params: {
+        id: multaTypeId,
+      },
+    });
   }
 }

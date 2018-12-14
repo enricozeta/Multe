@@ -4,5 +4,6 @@ export class Multa {
   data: Date;
   pagata: boolean;
   playerId: number;
-  multeType: any;
+  multeTypeId: number;
+  valore: number;
 }
