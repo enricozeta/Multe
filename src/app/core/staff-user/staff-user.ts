@@ -4,5 +4,6 @@ export class StaffUser {
   fullName: string;
   name: string;
   lastName: string;
+  password: string;
   teamId: number;
 }

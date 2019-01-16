@@ -4,5 +4,7 @@ export class Profile {
   fullName: string;
   name: string;
   lastName: string;
+  surname: string;
+  team: string;
   teamId: number;
 }
