@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  baseUrl: 'http://localhost:29090'
+  baseUrl: 'https://multe.herokuapp.com'
 };
 
 /*

@@ -32,7 +32,10 @@
               <!-- Pagate Column -->
               <ng-container matColumnDef="pagata">
                 <th mat-header-cell *matHeaderCellDef>Pagata</th>
-                <td mat-cell *matCellDef="let element">{{ element.pagata }}</td>
+                <td mat-cell *matCellDef="let element">
+                    <img *ngIf="element.pagata == true" src="../../../assets/v.png">
+                    <img *ngIf="element.pagata == false" src="../../../assets/X.png">
+                </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

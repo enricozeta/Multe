@@ -31,3 +31,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.mat-expansion-panel-header{
+  color: rgba(0, 0, 0, 1);
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+  color: rgba(0, 0, 0, 1);
+}
