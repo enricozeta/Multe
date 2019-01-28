@@ -36,44 +36,52 @@ import { TeamSettingsComponent } from './components/team-settings/team-settings.
 
 import { MAT_DATE_LOCALE } from '@angular/material';
 
+import { JwtModule } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '@env/environment';
+import { TokenInterceptor } from './components/login/token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+export function tokenGetter() {
+  return localStorage.getItem('jwt_token');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
-
     ChangePasswordComponent,
-
     HomeComponent,
-
     LoginComponent,
-
     NewMultaComponent,
     MultaTypesComponent,
-
     NewMultaTypeComponent,
     NewPlayerComponent,
-
     PlayerComponent,
     PlayersComponent,
     ProfileComponent,
-
     TeamSettingsComponent
   ],
   imports: [
     AppRoutingModule,
-
     BrowserModule,
     BrowserAnimationsModule,
-
     MaterialModule,
-
     FormsModule,
     ReactiveFormsModule,
-
     SharedModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: [environment.domain, 'localhost:28080'],
+        blacklistedRoutes: []
+      }
+    })
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'it-IT' },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [
     AppComponent

@@ -1,14 +1,22 @@
-<div class="alert alert-danger">
-	There was a problem logging in. Please try again.
+<div class="login">
+  <div class="content">
+    <mat-card class="card">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <div class="form">
+          <mat-form-field>
+            <input matInput [(ngModel)]="loginForm.username" placeholder="Username" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="loginForm.password" placeholder="Password" required>
+          </mat-form-field>
+
+          <div class="center">
+            <button color="primary" (click)="_login()" mat-raised-button>Login</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-<form role="form">
-	<div class="form-group">
-		<label for="username">Username:</label> <input type="text"
-			class="form-control" id="username" name="username"/>
-	</div>
-	<div class="form-group">
-		<label for="password">Password:</label> <input type="password"
-			class="form-control" id="password" name="password"/>
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
