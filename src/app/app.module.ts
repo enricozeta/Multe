@@ -74,7 +74,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: [environment.domain, 'localhost:28080'],
+        whitelistedDomains: ['multe.herokuapp.com', 'localhost:28080'],
         blacklistedRoutes: []
       }
     })
