@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   _login(): void {
     this.loginService.login(this.loginForm).subscribe(data => {
       localStorage.setItem('jwt_token', data.accessToken);
+      this.router.navigate(['/home']);
     });
   }
 
