@@ -1,18 +1,13 @@
 @import '~app/style/style';
 
-.login {
-  height: 100%;
-
-  .content {
-    padding: 24px;
-  }
-
-  .header {
-    padding: 24px;
-  }
-
-  .form {
-    display: flex;
-    flex-direction: column;
-  }
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+.signin-content {
+  padding: 60px 1rem;
+}
+.full-width-input {
+  width: 100%;
 }

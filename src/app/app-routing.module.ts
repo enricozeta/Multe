@@ -13,8 +13,8 @@ import { TeamSettingsComponent } from './components/team-settings/team-settings.
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'change-password', component: ChangePasswordComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'multa-types', component: MultaTypesComponent },
   { path: 'new-multa', component: NewMultaComponent },
   { path: 'new-multa-type', component: NewMultaTypeComponent },

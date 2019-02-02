@@ -41,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { TokenInterceptor } from './components/login/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MenuComponent } from './menu/menu.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt_token');
@@ -59,7 +60,8 @@ export function tokenGetter() {
     PlayerComponent,
     PlayersComponent,
     ProfileComponent,
-    TeamSettingsComponent
+    TeamSettingsComponent,
+    MenuComponent
   ],
   imports: [
     AppRoutingModule,

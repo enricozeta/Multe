@@ -23,11 +23,12 @@ export class StaffUserComponent implements OnInit {
 
   _setName() {
     this.teamService.getTeam().subscribe(data => {
-      this.staffUser.email = data.name;
+      this.staffUser.email = data.name.replace(/\s/g, '');
     });
   }
 
   _saveStaffUser() {
+    console.log(this.staffUser);
     this.teamService.saveStaffUser(this.staffUser).subscribe(data => {
       this.router.navigate(['/team-settings']);
     });

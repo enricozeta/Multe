@@ -23,6 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
               'Content-Type': `application/json`
             }
           });
+          localStorage.removeItem('jwt_token');
           this.router.navigate(['/login']);
         } else {
           clone = request.clone({
@@ -42,6 +43,7 @@ export class TokenInterceptor implements HttpInterceptor {
             Authorization: `Bearer ${token}`
           }
         });
+        localStorage.removeItem('jwt_token');
         this.router.navigate(['/login']);
       }
       return next.handle(clone);

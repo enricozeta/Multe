@@ -1,9 +1,11 @@
 <div class="app" [class.is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button *ngIf="isLoggedIn$ | async" mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <h1 routerLink="home">Multe Manager</h1>
+    <span class="example-spacer"></span>
+    <mat-icon *ngIf="isLoggedIn$ | async" (click)="_logOut()">logout</mat-icon>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
@@ -20,7 +22,6 @@
             <mat-list-item routerLink="new-player" role="listitem">Nuovo giocatore</mat-list-item>
             <mat-list-item routerLink="multa-types" role="listitem">Tipologia multe</mat-list-item>
             <mat-list-item routerLink="team-settings" role="listitem">Impostazioni</mat-list-item>
-            <mat-list-item routerLink="login" role="listitem">Login</mat-list-item>
           </mat-list>
         </mat-expansion-panel>
 
